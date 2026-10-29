@@ -1,0 +1,38 @@
+name: Data watch
+
+# Every Monday, checks the providers' deprecation pages for model names that
+# data/models.json hasn't been reviewed against, and opens an issue if so.
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - id: check
+        run: |
+          set +e
+          node scripts/check-sources.mjs > report.md
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat report.md
+      - if: steps.check.outputs.status != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: Provider deprecation pages changed
+        run: |
+          existing=$(gh issue list --state open --json number,title --jq ".[] | select(.title == env.TITLE) | .number" | head -n 1)
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file report.md
+          else
+            gh issue create --title "$TITLE" --body-file report.md
+          fi

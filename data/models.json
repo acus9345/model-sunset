@@ -1,0 +1,1376 @@
+{
+  "version": 1,
+  "updated": "2026-10-29",
+  "sources": {
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "openai": "https://developers.openai.com/api/docs/deprecations",
+    "google": "https://ai.google.dev/gemini-api/docs/deprecations"
+  },
+  "models": [
+    {
+      "id": "claude-mythos-preview",
+      "provider": "anthropic",
+      "deprecated": "2026-06-09",
+      "shutdown": null,
+      "replacement": "claude-mythos-5-1"
+    },
+    {
+      "id": "claude-sonnet-4-5-20250929",
+      "provider": "anthropic",
+      "deprecated": "2026-09-30",
+      "shutdown": "2026-11-30",
+      "replacement": "claude-sonnet-5-5"
+    },
+    {
+      "id": "claude-opus-4-1-20250805",
+      "provider": "anthropic",
+      "deprecated": "2026-06-05",
+      "shutdown": "2026-08-05",
+      "replacement": "claude-opus-4-8"
+    },
+    {
+      "id": "claude-sonnet-4-20250514",
+      "provider": "anthropic",
+      "deprecated": "2026-04-14",
+      "shutdown": "2026-06-15",
+      "replacement": "claude-sonnet-5-5"
+    },
+    {
+      "id": "claude-opus-4-20250514",
+      "provider": "anthropic",
+      "deprecated": "2026-04-14",
+      "shutdown": "2026-06-15",
+      "replacement": "claude-opus-4-8"
+    },
+    {
+      "id": "claude-3-haiku-20240307",
+      "provider": "anthropic",
+      "deprecated": "2026-02-19",
+      "shutdown": "2026-04-20",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-3-5-haiku-20241022",
+      "provider": "anthropic",
+      "deprecated": "2025-12-19",
+      "shutdown": "2026-02-19",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-3-7-sonnet-20250219",
+      "provider": "anthropic",
+      "deprecated": "2025-10-28",
+      "shutdown": "2026-02-19",
+      "replacement": "claude-sonnet-5-5"
+    },
+    {
+      "id": "claude-3-5-sonnet-20240620",
+      "provider": "anthropic",
+      "deprecated": "2025-08-13",
+      "shutdown": "2025-10-28",
+      "replacement": "claude-sonnet-5-5"
+    },
+    {
+      "id": "claude-3-5-sonnet-20241022",
+      "provider": "anthropic",
+      "deprecated": "2025-08-13",
+      "shutdown": "2025-10-28",
+      "replacement": "claude-sonnet-5-5"
+    },
+    {
+      "id": "claude-3-opus-20240229",
+      "provider": "anthropic",
+      "deprecated": "2025-06-30",
+      "shutdown": "2026-01-05",
+      "replacement": "claude-opus-4-8"
+    },
+    {
+      "id": "claude-2.0",
+      "provider": "anthropic",
+      "deprecated": "2025-01-21",
+      "shutdown": "2025-07-21",
+      "replacement": "claude-opus-4-8"
+    },
+    {
+      "id": "claude-2.1",
+      "provider": "anthropic",
+      "deprecated": "2025-01-21",
+      "shutdown": "2025-07-21",
+      "replacement": "claude-opus-4-8"
+    },
+    {
+      "id": "claude-3-sonnet-20240229",
+      "provider": "anthropic",
+      "deprecated": "2025-01-21",
+      "shutdown": "2025-07-21",
+      "replacement": "claude-sonnet-5-5"
+    },
+    {
+      "id": "claude-1.0",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-1.1",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-1.2",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-1.3",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-instant-1.0",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-instant-1.1",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "claude-instant-1.2",
+      "provider": "anthropic",
+      "deprecated": "2024-09-04",
+      "shutdown": "2024-11-06",
+      "replacement": "claude-haiku-4-5-20251001"
+    },
+    {
+      "id": "gpt-4o-2024-08-06",
+      "provider": "openai",
+      "shutdown": "2027-01-14",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-4o-2024-11-20",
+      "provider": "openai",
+      "shutdown": "2027-01-14",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-4o-mini-2024-07-18",
+      "provider": "openai",
+      "shutdown": "2027-01-14",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-4.1-2025-04-14",
+      "provider": "openai",
+      "shutdown": "2027-01-14",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-4.1-mini-2025-04-14",
+      "provider": "openai",
+      "shutdown": "2027-01-14",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-5.3-codex",
+      "provider": "openai",
+      "shutdown": "2027-04-01",
+      "replacement": "gpt-6-sol"
+    },
+    {
+      "id": "gpt-5.4-nano",
+      "provider": "openai",
+      "shutdown": "2027-04-01",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-5.4-nano-2026-03-17",
+      "provider": "openai",
+      "shutdown": "2027-04-01",
+      "replacement": "gpt-6-luna"
+    },
+    {
+      "id": "gpt-5.1",
+      "provider": "openai",
+      "shutdown": "2027-04-01",
+      "replacement": "gpt-6-sol"
+    },
+    {
+      "id": "gpt-5.1-2025-11-13",
+      "provider": "openai",
+      "shutdown": "2027-04-01",
+      "replacement": "gpt-6-sol"
+    },
+    {
+      "id": "tts-1",
+      "provider": "openai",
+      "shutdown": "2027-01-06",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "tts-1-hd",
+      "provider": "openai",
+      "shutdown": "2027-01-06",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-4o-mini-tts-2025-03-20",
+      "provider": "openai",
+      "shutdown": "2027-01-06",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-4o-mini-tts-2025-12-15",
+      "provider": "openai",
+      "shutdown": "2027-01-06",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-4o-mini-tts",
+      "provider": "openai",
+      "shutdown": "2027-01-06",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "whisper-1",
+      "provider": "openai",
+      "shutdown": "2027-02-26",
+      "replacement": "gpt-transcribe"
+    },
+    {
+      "id": "gpt-4o-transcribe",
+      "provider": "openai",
+      "shutdown": "2027-02-26",
+      "replacement": "gpt-transcribe"
+    },
+    {
+      "id": "gpt-4o-mini-transcribe",
+      "provider": "openai",
+      "shutdown": "2027-02-26",
+      "replacement": "gpt-transcribe"
+    },
+    {
+      "id": "gpt-4o-mini-transcribe-2025-12-15",
+      "provider": "openai",
+      "shutdown": "2027-02-26",
+      "replacement": "gpt-transcribe"
+    },
+    {
+      "id": "gpt-4o-transcribe-diarize",
+      "provider": "openai",
+      "shutdown": "2027-02-26",
+      "replacement": "gpt-transcribe"
+    },
+    {
+      "id": "gpt-4o-mini-transcribe-2025-03-20",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-transcribe"
+    },
+    {
+      "id": "gpt-realtime",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-realtime-2025-08-28",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-audio",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-audio-2025-08-28",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-4o-audio",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-4o-realtime",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-realtime-mini",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-realtime-mini-2025-12-15",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-audio-mini",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-audio-mini-2025-12-15",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-4o-mini-realtime",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-4o-mini-audio",
+      "provider": "openai",
+      "shutdown": "2027-01-20",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-5",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5-2025-08-07",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5-mini",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-5-mini-2025-08-07",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-5-nano",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "gpt-5-nano-2025-08-07",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "gpt-5-pro",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5-pro-2025-10-06",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3-2025-04-16",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3-pro",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3-pro-2025-06-10",
+      "provider": "openai",
+      "shutdown": "2026-12-11",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-image-1-mini",
+      "provider": "openai",
+      "shutdown": "2026-12-01",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "gpt-image-1.5",
+      "provider": "openai",
+      "shutdown": "2026-12-01",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "gpt-image-1.5-2025-12-16",
+      "provider": "openai",
+      "shutdown": "2026-12-01",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "chatgpt-image-latest",
+      "provider": "openai",
+      "shutdown": "2026-12-01",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "gpt-5.4-cyber",
+      "provider": "openai",
+      "shutdown": "2026-10-01"
+    },
+    {
+      "id": "gpt-5.2-chat-latest",
+      "provider": "openai",
+      "shutdown": "2026-08-10",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5.3-chat-latest",
+      "provider": "openai",
+      "shutdown": "2026-08-10",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-3.5-turbo-0125",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-3.5-turbo",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-4-0613",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-1106-preview",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-turbo",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-turbo-2024-04-09",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "gpt-4.1-nano-2025-04-14",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "gpt-4o-2024-05-13",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-image-1",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "o1-2024-12-17",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o1",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o1-pro-2025-03-19",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o1-pro",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3-mini-2025-01-31",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3-mini",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o4-mini-2025-04-16",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "o4-mini",
+      "provider": "openai",
+      "shutdown": "2026-10-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "computer-use-preview-2025-03-11",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "computer-use-preview",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-4o-mini-search-preview-2025-03-11",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-4o-search-preview-2025-03-11",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-5-chat-latest",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5-codex",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5.1-chat-latest",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5.1-codex",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5.1-codex-max",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-5.1-codex-mini",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-5.2-codex",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-audio-mini-2025-10-06",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-realtime-mini-2025-10-06",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "o3-deep-research-2025-06-26",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o3-deep-research",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o4-mini-deep-research-2025-06-26",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o4-mini-deep-research",
+      "provider": "openai",
+      "shutdown": "2026-07-23",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "sora-2",
+      "provider": "openai",
+      "shutdown": "2026-09-24"
+    },
+    {
+      "id": "sora-2-pro",
+      "provider": "openai",
+      "shutdown": "2026-09-24"
+    },
+    {
+      "id": "sora-2-2025-10-06",
+      "provider": "openai",
+      "shutdown": "2026-09-24"
+    },
+    {
+      "id": "sora-2-2025-12-08",
+      "provider": "openai",
+      "shutdown": "2026-09-24"
+    },
+    {
+      "id": "sora-2-pro-2025-10-06",
+      "provider": "openai",
+      "shutdown": "2026-09-24"
+    },
+    {
+      "id": "chatgpt-4o-latest",
+      "provider": "openai",
+      "shutdown": "2026-02-17",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "codex-mini-latest",
+      "provider": "openai",
+      "shutdown": "2026-02-12",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "dall-e-2",
+      "provider": "openai",
+      "shutdown": "2026-05-12",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "dall-e-3",
+      "provider": "openai",
+      "shutdown": "2026-05-12",
+      "replacement": "gpt-image-2.5-sunburst"
+    },
+    {
+      "id": "gpt-3.5-turbo-instruct",
+      "provider": "openai",
+      "shutdown": "2026-09-28",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "babbage-002",
+      "provider": "openai",
+      "shutdown": "2026-09-28",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "davinci-002",
+      "provider": "openai",
+      "shutdown": "2026-09-28",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-3.5-turbo-1106",
+      "provider": "openai",
+      "shutdown": "2026-09-28",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-4-0314",
+      "provider": "openai",
+      "shutdown": "2026-03-26",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-0125-preview",
+      "provider": "openai",
+      "shutdown": "2026-03-26",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-turbo-preview",
+      "provider": "openai",
+      "shutdown": "2026-03-26",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4o-realtime-preview",
+      "provider": "openai",
+      "shutdown": "2026-05-07",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-4o-realtime-preview-2025-06-03",
+      "provider": "openai",
+      "shutdown": "2026-05-07",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-4o-realtime-preview-2024-12-17",
+      "provider": "openai",
+      "shutdown": "2026-05-07",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-4o-mini-realtime-preview",
+      "provider": "openai",
+      "shutdown": "2026-05-07",
+      "replacement": "gpt-realtime-2.1-mini"
+    },
+    {
+      "id": "gpt-4o-audio-preview",
+      "provider": "openai",
+      "shutdown": "2026-05-07",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-4o-mini-audio-preview",
+      "provider": "openai",
+      "shutdown": "2026-05-07",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "gpt-4o-realtime-preview-2024-10-01",
+      "provider": "openai",
+      "shutdown": "2025-10-10",
+      "replacement": "gpt-realtime-2.1"
+    },
+    {
+      "id": "gpt-4o-audio-preview-2024-10-01",
+      "provider": "openai",
+      "shutdown": "2025-10-10",
+      "replacement": "gpt-audio-1.5"
+    },
+    {
+      "id": "text-moderation-007",
+      "provider": "openai",
+      "shutdown": "2025-10-27",
+      "replacement": "omni-moderation-latest"
+    },
+    {
+      "id": "text-moderation-stable",
+      "provider": "openai",
+      "shutdown": "2025-10-27",
+      "replacement": "omni-moderation-latest"
+    },
+    {
+      "id": "text-moderation-latest",
+      "provider": "openai",
+      "shutdown": "2025-10-27",
+      "replacement": "omni-moderation-latest"
+    },
+    {
+      "id": "o1-preview",
+      "provider": "openai",
+      "shutdown": "2025-07-28",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "o1-mini",
+      "provider": "openai",
+      "shutdown": "2025-10-27",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-4.5-preview",
+      "provider": "openai",
+      "shutdown": "2025-07-14",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-32k",
+      "provider": "openai",
+      "shutdown": "2025-06-06",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-32k-0613",
+      "provider": "openai",
+      "shutdown": "2025-06-06",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-32k-0314",
+      "provider": "openai",
+      "shutdown": "2025-06-06",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-vision-preview",
+      "provider": "openai",
+      "shutdown": "2024-12-06",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-4-1106-vision-preview",
+      "provider": "openai",
+      "shutdown": "2024-12-06",
+      "replacement": "gpt-5.6-sol"
+    },
+    {
+      "id": "gpt-3.5-turbo-0613",
+      "provider": "openai",
+      "shutdown": "2024-09-13",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-3.5-turbo-16k-0613",
+      "provider": "openai",
+      "shutdown": "2024-09-13",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "gpt-3.5-turbo-0301",
+      "provider": "openai",
+      "shutdown": "2024-09-13",
+      "replacement": "gpt-5.6-terra"
+    },
+    {
+      "id": "text-ada-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-babbage-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-curie-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-davinci-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-davinci-002",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-davinci-003",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "code-davinci-002",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-davinci-edit-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "code-davinci-edit-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "text-similarity-ada-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-ada-doc-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-ada-query-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "code-search-ada-code-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "code-search-ada-text-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-similarity-babbage-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-babbage-doc-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-babbage-query-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "code-search-babbage-code-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "code-search-babbage-text-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-similarity-curie-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-curie-doc-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-curie-query-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-similarity-davinci-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-davinci-doc-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "text-search-davinci-query-001",
+      "provider": "openai",
+      "shutdown": "2024-01-04",
+      "replacement": "text-embedding-3-small"
+    },
+    {
+      "id": "code-cushman-001",
+      "provider": "openai",
+      "shutdown": "2023-03-23",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "code-cushman-002",
+      "provider": "openai",
+      "shutdown": "2023-03-23",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "code-davinci-001",
+      "provider": "openai",
+      "shutdown": "2023-03-23",
+      "replacement": "gpt-5.6-luna"
+    },
+    {
+      "id": "gemini-3.1-flash-lite",
+      "provider": "google",
+      "shutdown": "2027-05-07",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-3.1-flash-tts-preview",
+      "provider": "google",
+      "shutdown": "2026-11-17",
+      "replacement": "gemini-3.8-flash-tts"
+    },
+    {
+      "id": "gemini-3-pro-preview",
+      "provider": "google",
+      "shutdown": "2026-03-09",
+      "replacement": "gemini-3.1-pro-preview"
+    },
+    {
+      "id": "gemini-3.1-flash-lite-preview",
+      "provider": "google",
+      "shutdown": "2026-05-25",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-2.5-computer-use-preview-10-2025",
+      "provider": "google",
+      "shutdown": "2026-07-28",
+      "replacement": "gemini-3.8-flash"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-03-25",
+      "provider": "google",
+      "shutdown": "2025-12-02",
+      "replacement": "gemini-3.1-pro-preview"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-05-06",
+      "provider": "google",
+      "shutdown": "2025-12-02",
+      "replacement": "gemini-3.1-pro-preview"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-06-05",
+      "provider": "google",
+      "shutdown": "2025-12-02",
+      "replacement": "gemini-3.1-pro-preview"
+    },
+    {
+      "id": "gemini-2.5-flash-lite-preview-09-2025",
+      "provider": "google",
+      "shutdown": "2026-03-31",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-2.5-flash-preview-05-20",
+      "provider": "google",
+      "shutdown": "2025-11-18",
+      "replacement": "gemini-3.6-flash"
+    },
+    {
+      "id": "gemini-2.5-flash-preview-09-25",
+      "provider": "google",
+      "shutdown": "2026-02-17",
+      "replacement": "gemini-3.6-flash"
+    },
+    {
+      "id": "gemini-2.0-flash",
+      "provider": "google",
+      "shutdown": "2026-06-01",
+      "replacement": "gemini-3.6-flash"
+    },
+    {
+      "id": "gemini-2.0-flash-001",
+      "provider": "google",
+      "shutdown": "2026-06-01",
+      "replacement": "gemini-3.6-flash"
+    },
+    {
+      "id": "gemini-2.0-flash-lite",
+      "provider": "google",
+      "shutdown": "2026-06-01",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-2.0-flash-lite-001",
+      "provider": "google",
+      "shutdown": "2026-06-01",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-2.0-flash-lite-preview",
+      "provider": "google",
+      "shutdown": "2025-12-09",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-2.0-flash-lite-preview-02-05",
+      "provider": "google",
+      "shutdown": "2025-12-09",
+      "replacement": "gemini-3.5-flash-lite"
+    },
+    {
+      "id": "gemini-2.0-flash-live-001",
+      "provider": "google",
+      "shutdown": "2025-12-09",
+      "replacement": "gemini-3.8-live"
+    },
+    {
+      "id": "gemini-3.1-flash-live-preview",
+      "provider": "google",
+      "shutdown": "2026-11-17",
+      "replacement": "gemini-3.8-live"
+    },
+    {
+      "id": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "provider": "google",
+      "shutdown": "2026-11-17",
+      "replacement": "gemini-3.8-live"
+    },
+    {
+      "id": "gemini-live-2.5-flash-preview",
+      "provider": "google",
+      "shutdown": "2025-12-09",
+      "replacement": "gemini-3.8-live"
+    },
+    {
+      "id": "gemini-2.5-flash-preview-tts",
+      "provider": "google",
+      "shutdown": "2026-11-17",
+      "replacement": "gemini-3.8-flash-tts"
+    },
+    {
+      "id": "gemini-2.5-pro-preview-tts",
+      "provider": "google",
+      "shutdown": "2026-11-17",
+      "replacement": "gemini-3.8-flash-tts"
+    },
+    {
+      "id": "gemini-embedding-001",
+      "provider": "google",
+      "shutdown": "2028-05-14",
+      "replacement": "gemini-embedding-2"
+    },
+    {
+      "id": "text-embedding-004",
+      "provider": "google",
+      "shutdown": "2026-01-14",
+      "replacement": "gemini-embedding-2"
+    },
+    {
+      "id": "embedding-2-preview",
+      "provider": "google",
+      "shutdown": "2026-08-10",
+      "replacement": "gemini-embedding-2"
+    },
+    {
+      "id": "embedding-001",
+      "provider": "google",
+      "shutdown": "2025-10-30",
+      "replacement": "gemini-embedding-2"
+    },
+    {
+      "id": "gemini-2.5-flash-image",
+      "provider": "google",
+      "shutdown": "2027-03-15",
+      "replacement": "gemini-3.1-flash-lite-image"
+    },
+    {
+      "id": "gemini-3.1-flash-image-preview",
+      "provider": "google",
+      "shutdown": "2026-06-25",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "gemini-3-pro-image-preview",
+      "provider": "google",
+      "shutdown": "2026-06-25",
+      "replacement": "gemini-3-pro-image"
+    },
+    {
+      "id": "gemini-2.5-flash-image-preview",
+      "provider": "google",
+      "shutdown": "2026-01-15",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "gemini-2.0-flash-preview-image-generation",
+      "provider": "google",
+      "shutdown": "2025-11-14",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "imagen-4.0-generate-001",
+      "provider": "google",
+      "shutdown": "2026-08-17",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "imagen-4.0-ultra-generate-001",
+      "provider": "google",
+      "shutdown": "2026-08-17",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "imagen-4.0-fast-generate-001",
+      "provider": "google",
+      "shutdown": "2026-08-17",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "imagen-3.0-generate-002",
+      "provider": "google",
+      "shutdown": "2025-11-10",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "imagen-4.0-generate-preview-06-06",
+      "provider": "google",
+      "shutdown": "2026-02-17",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "imagen-4.0-ultra-generate-preview-06-06",
+      "provider": "google",
+      "shutdown": "2026-02-17",
+      "replacement": "gemini-nano-banana-2.1"
+    },
+    {
+      "id": "veo-3.0-generate-001",
+      "provider": "google",
+      "shutdown": "2026-06-30",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-3.0-fast-generate-001",
+      "provider": "google",
+      "shutdown": "2026-06-30",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-2.0-generate-001",
+      "provider": "google",
+      "shutdown": "2026-06-30",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-3.1-lite-generate-preview",
+      "provider": "google",
+      "shutdown": "2026-10-22",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-3.1-generate-preview",
+      "provider": "google",
+      "shutdown": "2026-10-22",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-3.1-fast-generate-preview",
+      "provider": "google",
+      "shutdown": "2026-10-22",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-3.0-generate-preview",
+      "provider": "google",
+      "shutdown": "2025-11-12",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "veo-3.0-fast-generate-preview",
+      "provider": "google",
+      "shutdown": "2025-11-12",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "gemini-omni-flash-preview",
+      "provider": "google",
+      "shutdown": "2026-10-22",
+      "replacement": "gemini-omni-1.1-flash"
+    },
+    {
+      "id": "gemini-robotics-er-1.6-preview",
+      "provider": "google",
+      "shutdown": "2026-08-31",
+      "replacement": "gemini-robotics-er-2-preview"
+    },
+    {
+      "id": "gemini-robotics-er-1.5-preview",
+      "provider": "google",
+      "shutdown": "2026-04-30",
+      "replacement": "gemini-robotics-er-2-preview"
+    },
+    {
+      "id": "deep-research-pro-preview-12-2025",
+      "provider": "google",
+      "shutdown": "2026-10-23",
+      "replacement": "deep-research-preview-04-2026"
+    }
+  ]
+}

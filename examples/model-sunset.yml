@@ -1,0 +1,24 @@
+# Copy to .github/workflows/model-sunset.yml in your repository.
+# Runs every Monday, opens (or updates) an issue listing hardcoded model IDs
+# that are retired or deprecated, and closes it once they are gone.
+name: Model sunset check
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  model-sunset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: acus9345/model-sunset@v0
+        with:
+          fail-on: retired
+          create-issue: ${{ github.event_name != 'pull_request' }}

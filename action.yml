@@ -1,0 +1,103 @@
+name: model-sunset
+description: Find hardcoded LLM model IDs that are retired or about to be, and open an issue listing them.
+author: acus9345
+branding:
+  icon: sunset
+  color: orange
+
+inputs:
+  path:
+    description: Files or directories to scan, separated by spaces.
+    default: "."
+  fail-on:
+    description: Fail the step on "retired", "deprecated" or "none".
+    default: retired
+  within:
+    description: Only report deprecated models that shut down within this many days. Empty reports all.
+    default: ""
+  ignore:
+    description: Glob patterns to skip, one per line.
+    default: ""
+  create-issue:
+    description: Open or update an issue with the findings (needs `issues: write`). The issue is closed when nothing is found.
+    default: "false"
+  issue-title:
+    description: Title of the issue the action keeps up to date.
+    default: Hardcoded model IDs are retired or deprecated
+  version:
+    description: model-sunset version to run from npm.
+    default: "0"
+  github-token:
+    description: Token for creating the issue.
+    default: ${{ github.token }}
+
+outputs:
+  count:
+    description: Number of findings.
+    value: ${{ steps.scan.outputs.count }}
+  retired:
+    description: Number of retired model IDs found.
+    value: ${{ steps.scan.outputs.retired }}
+
+runs:
+  using: composite
+  steps:
+    - id: scan
+      shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_WITHIN: ${{ inputs.within }}
+        INPUT_IGNORE: ${{ inputs.ignore }}
+        INPUT_VERSION: ${{ inputs.version }}
+      run: |
+        args=()
+        if [ -n "$INPUT_WITHIN" ]; then args+=(--within "$INPUT_WITHIN"); fi
+        while IFS= read -r pattern; do
+          if [ -n "$pattern" ]; then args+=(--ignore "$pattern"); fi
+        done <<< "$INPUT_IGNORE"
+        read -r -a paths <<< "$INPUT_PATH"
+        cli=(npx --yes "model-sunset@$INPUT_VERSION")
+        "${cli[@]}" "${paths[@]}" "${args[@]}" --fail-on none --format github
+        "${cli[@]}" "${paths[@]}" "${args[@]}" --fail-on none --format json > "$RUNNER_TEMP/model-sunset.json"
+        "${cli[@]}" "${paths[@]}" "${args[@]}" --fail-on none --format markdown > "$RUNNER_TEMP/model-sunset.md"
+        cat "$RUNNER_TEMP/model-sunset.md" >> "$GITHUB_STEP_SUMMARY"
+        count=$(node -p "require(process.env.RUNNER_TEMP + '/model-sunset.json').findings.length")
+        retired=$(node -p "require(process.env.RUNNER_TEMP + '/model-sunset.json').findings.filter(f => f.status === 'retired').length")
+        echo "count=$count" >> "$GITHUB_OUTPUT"
+        echo "retired=$retired" >> "$GITHUB_OUTPUT"
+
+    - if: inputs.create-issue == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        TITLE: ${{ inputs.issue-title }}
+        COUNT: ${{ steps.scan.outputs.count }}
+      run: |
+        existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$TITLE\" in:title" --json number,title --jq ".[] | select(.title == env.TITLE) | .number" | head -n 1)
+        body="$RUNNER_TEMP/model-sunset.md"
+        printf '\n\n_Updated by [model-sunset](https://github.com/acus9345/model-sunset) in run %s/%s/actions/runs/%s._\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" >> "$body"
+        if [ "$COUNT" -gt 0 ]; then
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --repo "$GITHUB_REPOSITORY" --body-file "$body"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body-file "$body"
+          fi
+        elif [ -n "$existing" ]; then
+          gh issue close "$existing" --repo "$GITHUB_REPOSITORY" --comment "No retired or deprecated model IDs found anymore."
+        fi
+
+    - if: inputs.fail-on != 'none'
+      shell: bash
+      env:
+        FAIL_ON: ${{ inputs.fail-on }}
+        COUNT: ${{ steps.scan.outputs.count }}
+        RETIRED: ${{ steps.scan.outputs.retired }}
+      run: |
+        if [ "$FAIL_ON" = "deprecated" ] && [ "$COUNT" -gt 0 ]; then
+          echo "::error::$COUNT retired or deprecated model ID(s) found."
+          exit 1
+        fi
+        if [ "$FAIL_ON" = "retired" ] && [ "$RETIRED" -gt 0 ]; then
+          echo "::error::$RETIRED retired model ID(s) found. Requests to them fail."
+          exit 1
+        fi
