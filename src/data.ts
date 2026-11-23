@@ -52,18 +52,26 @@ export function parseData(json: string, label = "data"): ModelData {
     throw new Error(`${label} is missing "updated" or "models"`);
   }
   for (const m of data.models) {
-    if (!m || typeof m.id !== "string" || !m.id || typeof m.provider !== "string") {
+    if (!m || typeof m.id !== "string" || !m.id || typeof m.provider !== "string" || !m.provider) {
       throw new Error(`${label} has a model without "id" or "provider"`);
+    }
+    if (m.deprecated !== undefined && !isDate(m.deprecated)) {
+      throw new Error(`${label}: ${m.id} has an invalid deprecated date ${JSON.stringify(m.deprecated)}`);
     }
     if (m.shutdown !== null && !isDate(m.shutdown)) {
       throw new Error(`${label}: ${m.id} has an invalid shutdown date ${JSON.stringify(m.shutdown)}`);
+    }
+    if (m.aliases !== undefined && (!Array.isArray(m.aliases) || m.aliases.some((a) => typeof a !== "string" || !a))) {
+      throw new Error(`${label}: ${m.id} has invalid aliases`);
     }
   }
   return data;
 }
 
-function isDate(value: unknown): value is string {
-  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
+export function isDate(value: unknown): value is string {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const ms = Date.parse(value);
+  return !Number.isNaN(ms) && new Date(ms).toISOString().slice(0, 10) === value;
 }
 
 export interface LoadOptions {

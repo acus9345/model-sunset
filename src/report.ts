@@ -82,6 +82,14 @@ export function formatGithub(findings: Finding[], options: ReportOptions = {}): 
   return lines.join("\n");
 }
 
+function mdCode(s: string): string {
+  const safe = s.replace(/\|/g, "\\|");
+  if (!safe.includes("`")) return `\`${safe}\``;
+  const ticks = "`".repeat(Math.max(...safe.match(/`+/g)!.map((m) => m.length)) + 1);
+  const pad = safe.startsWith("`") || safe.endsWith("`") || safe.startsWith(" ") || safe.endsWith(" ") ? " " : "";
+  return `${ticks}${pad}${safe}${pad}${ticks}`;
+}
+
 /** A Markdown table, used for the issue the GitHub Action opens. */
 export function formatMarkdown(findings: Finding[], options: ReportOptions = {}): string {
   const out = [summary(findings, options.updated)];
@@ -89,7 +97,7 @@ export function formatMarkdown(findings: Finding[], options: ReportOptions = {})
     out.push("", "| Location | Model | Status | Suggested replacement |", "| --- | --- | --- | --- |");
     for (const f of findings) {
       const status = f.status === "retired" ? "**Retired**" : describe(f).replace(/^sunset/, "Shuts down");
-      out.push(`| \`${f.file}:${f.line}\` | \`${f.match}\` | ${status} | ${f.model.replacement ? `\`${f.model.replacement}\`` : ""} |`);
+      out.push(`| ${mdCode(`${f.file}:${f.line}`)} | ${mdCode(f.match)} | ${status} | ${f.model.replacement ? mdCode(f.model.replacement) : ""} |`);
     }
   }
   return out.join("\n");

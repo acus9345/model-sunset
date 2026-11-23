@@ -13,7 +13,7 @@ writeFileSync(join(dir, "src", "chat.ts"), `\n\nconst model = "claude-3-opus-202
 writeFileSync(join(dir, "src", "embed.ts"), `export const MODEL = "claude-sonnet-4-5-20250929";\n`);
 
 function run(...args: string[]) {
-  const res = spawnSync(process.execPath, [CLI, ...args, "--offline", "--today", "2026-10-29"], {
+  const res = spawnSync(process.execPath, [CLI, "--offline", "--today", "2026-10-29", ...args], {
     cwd: dir,
     encoding: "utf8",
     env: { ...process.env, NO_COLOR: "1" },
@@ -55,6 +55,9 @@ describe("cli", () => {
   it("rejects bad options with exit code 2", () => {
     assert.equal(run("--format", "xml").code, 2);
     assert.equal(run("--within", "soon").code, 2);
+    assert.equal(run("--within", "").code, 2);
+    assert.equal(run("--within", "   ").code, 2);
+    assert.equal(run("--today", "2026-02-31").code, 2);
     const missing = run("nope");
     assert.equal(missing.code, 2);
     assert.match(missing.err, /no such file/);

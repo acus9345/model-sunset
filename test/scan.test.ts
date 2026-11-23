@@ -62,6 +62,13 @@ describe("matcher", () => {
     assert.deepEqual(ids(`We use claude-3-opus-20240229.`), ["claude-3-opus-20240229"]);
     assert.deepEqual(ids(`EMBED=text-embedding-ada-002`), ["text-embedding-ada-002"]);
   });
+
+  it("does not report overlapping loose and strict matches on the same token", () => {
+    const custom = createMatcher([
+      { id: "gpt-4", provider: "openai", shutdown: "2026-10-23", aliases: ["openai/gpt-4"] },
+    ]);
+    assert.deepEqual(custom.matchLine(`model: "openai/gpt-4"`).map((h) => h.match), ["openai/gpt-4"]);
+  });
 });
 
 describe("scanText", () => {
@@ -115,6 +122,12 @@ describe("report", () => {
     assert.match(out, /\| `src\/chat\.ts:1` \| `claude-3-opus-20240229` \| \*\*Retired\*\* \| `claude-opus-4-8` \|/);
   });
 
+  it("escapes pipes and backticks in markdown table cells", () => {
+    const tricky = scanText(`"gpt-4"`, "src/a|b`c.ts", matcher, TODAY);
+    const out = formatMarkdown(tricky);
+    assert.match(out, /\| ``src\/a\\\|b`c\.ts:1`` \| `gpt-4` \|/);
+  });
+
   it("says when nothing was found", () => {
     assert.equal(formatText([]), "No retired or deprecated model IDs found.");
   });
@@ -156,6 +169,20 @@ describe("scanPaths", () => {
     const findings = await scanPaths([dir], MODELS, { today: TODAY, ignore: ["*.md"] });
     assert.equal(findings.length, 1);
   });
+
+  it("scans repos under an ancestor directory named like a skipped dir", async () => {
+    const root = mkdtempSync(join(tmpdir(), "model-sunset-ancestor-"));
+    try {
+      const nested = join(root, "build", "project");
+      mkdirSync(join(nested, "src"), { recursive: true });
+      writeFileSync(join(nested, "src", "app.ts"), `const m = "gpt-4";\n`);
+      writeFileSync(join(nested, "build"), `const m = "o1";\n`);
+      const findings = await scanPaths([nested], MODELS, { today: TODAY });
+      assert.deepEqual(findings.map((f) => f.match).sort(), ["gpt-4", "o1"]);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe("data", () => {
@@ -182,8 +209,24 @@ describe("data", () => {
     assert.throws(() => parseData("{"), /not valid JSON/);
     assert.throws(() => parseData(`{"updated":"2026-01-01"}`), /missing/);
     assert.throws(
+      () => parseData(`{"updated":"2026-01-01","models":[{"id":"x","provider":"","shutdown":null}]}`),
+      /without "id" or "provider"/,
+    );
+    assert.throws(
       () => parseData(`{"updated":"2026-01-01","models":[{"id":"x","provider":"y","shutdown":"soon"}]}`),
       /invalid shutdown date/,
+    );
+    assert.throws(
+      () => parseData(`{"updated":"2026-01-01","models":[{"id":"x","provider":"y","shutdown":"2026-02-31"}]}`),
+      /invalid shutdown date/,
+    );
+    assert.throws(
+      () => parseData(`{"updated":"2026-01-01","models":[{"id":"x","provider":"y","deprecated":"2026-04-31","shutdown":null}]}`),
+      /invalid deprecated date/,
+    );
+    assert.throws(
+      () => parseData(`{"updated":"2026-01-01","models":[{"id":"x","provider":"y","shutdown":null,"aliases":"z"}]}`),
+      /invalid aliases/,
     );
   });
 

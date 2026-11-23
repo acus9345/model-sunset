@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
-import { loadData } from "./data.js";
+import { isDate, loadData } from "./data.js";
 import { format, type Format } from "./report.js";
 import { scanPaths, todayString, type Finding } from "./scan.js";
 
@@ -85,11 +85,12 @@ async function main(argv: string[]): Promise<number> {
   if (!FAIL_ON.has(failOn)) throw new UsageError(`--fail-on must be retired, deprecated or none, not "${failOn}"`);
   let within: number | undefined;
   if (values.within !== undefined) {
+    if (!/^\d+$/.test(values.within)) throw new UsageError(`--within must be a whole number of days`);
     within = Number(values.within);
-    if (!Number.isInteger(within) || within < 0) throw new UsageError(`--within must be a whole number of days`);
+    if (!Number.isSafeInteger(within)) throw new UsageError(`--within must be a whole number of days`);
   }
   const today = values.today ?? process.env.MODEL_SUNSET_TODAY ?? todayString();
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(today) || Number.isNaN(Date.parse(today))) {
+  if (!isDate(today)) {
     throw new UsageError(`--today must be a date like 2026-12-01`);
   }
 

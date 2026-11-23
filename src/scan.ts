@@ -1,6 +1,6 @@
 import { execFile } from "node:child_process";
 import { open, readdir, stat } from "node:fs/promises";
-import { join, relative, resolve, sep } from "node:path";
+import { basename, join, relative, resolve, sep } from "node:path";
 import type { ModelEntry } from "./data.js";
 
 export type Status = "retired" | "deprecated";
@@ -68,7 +68,11 @@ export function createMatcher(models: ModelEntry[]): Matcher {
         re.lastIndex = 0;
         for (let m = re.exec(line); m; m = re.exec(line)) {
           const model = byName.get(m[0]);
-          if (model && !hits.some((h) => h.column === m!.index + 1)) hits.push({ match: m[0], column: m.index + 1, model });
+          const column = m.index + 1;
+          const end = column + m[0].length;
+          if (model && !hits.some((h) => column < h.column + h.match.length && h.column < end)) {
+            hits.push({ match: m[0], column, model });
+          }
         }
       }
       return hits.sort((a, b) => a.column - b.column);
@@ -129,19 +133,21 @@ export async function listFiles(paths: string[], options: ListOptions = {}): Pro
   const files = new Set<string>();
   for (const p of paths) {
     const info = await stat(p);
+    const abs = resolve(p);
     if (info.isFile()) {
-      files.add(resolve(p));
+      files.add(abs);
       continue;
     }
-    const fromGit = await gitFiles(p);
-    for (const f of fromGit ?? (await walk(resolve(p)))) files.add(f);
+    const fromGit = await gitFiles(abs);
+    for (const f of fromGit ?? (await walk(abs))) {
+      const relDirs = relative(abs, f).split(sep).slice(0, -1);
+      if (!relDirs.some((part) => SKIP_DIRS.has(part))) files.add(f);
+    }
   }
   return [...files]
     .filter((f) => {
-      const parts = f.split(sep);
-      const name = parts[parts.length - 1]!;
+      const name = basename(f);
       if (SKIP_FILES.has(name) || BINARY_EXT.test(name) || /\.min\.(js|css)$/.test(name)) return false;
-      if (parts.some((part) => SKIP_DIRS.has(part))) return false;
       const rel = displayPath(f);
       return !ignore.some((re) => re.test(rel));
     })
@@ -192,7 +198,7 @@ export async function readText(file: string): Promise<string | undefined> {
 
 export function displayPath(file: string): string {
   const rel = relative(process.cwd(), file);
-  return (rel && !rel.startsWith("..") ? rel : file).split(sep).join("/");
+  return (rel && rel !== ".." && !rel.startsWith(`..${sep}`) ? rel : file).split(sep).join("/");
 }
 
 /** Converts a glob (`*`, `**`, `?`) to a regular expression. A pattern without `/` matches at any depth. */

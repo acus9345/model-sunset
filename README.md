@@ -40,6 +40,7 @@ npx model-sunset --format json
 | `--offline` | | Use the list shipped with the installed version; no network. |
 | `--data <file\|url>` | | Use your own list in the same format. |
 | `--today <date>` | today | Pretend it's another day, e.g. to see what breaks next quarter. |
+| `--no-color` | | Don't color the output (also honors `NO_COLOR`). |
 
 Exit codes: `0` nothing at or above `--fail-on`, `1` something is, `2` bad usage.
 
